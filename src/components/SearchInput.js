@@ -7,15 +7,18 @@ export default class SearchInput extends Component {
     super(props);
     this.state = {
       value: "",
-      users: null
+      users: null,
+      minCharacters: 4,
+      minCharactersReached: false
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.minCharacterCheck = this.minCharacterCheck.bind(this);
   }
 
   async getUsers(value) {
-    if (!value) {
-      return Promise.resolve({ options: [] });
+    if (!value || this.state.minCharactersReached === false) {
+      return [];
     }
 
     const response = await Api.get("", `q=${value}`);
@@ -25,23 +28,30 @@ export default class SearchInput extends Component {
       rObj["value"] = obj.id;
       return rObj;
     });
-    console.log(usersAsValueLabel);
     return usersAsValueLabel;
   }
 
   handleChange(event) {
-    console.log(event);
     this.setState({ value: event.label });
   }
 
+  minCharacterCheck(value) {
+    if (!!value && value.length >= this.state.minCharacters) {
+      this.setState({ minCharactersReached: true });
+    }
+  }
+
   render() {
+    const { value } = this.state;
     return (
       <div>
-        <p>value: {this.state.value}</p>
+        <p>value: {value}</p>
         <AsyncSelect
+          onInputChange={this.minCharacterCheck}
           loadOptions={e => this.getUsers(e)}
           onChange={this.handleChange}
-          value={this.state.value}
+          value={value}
+          autoFocus
         />
       </div>
     );

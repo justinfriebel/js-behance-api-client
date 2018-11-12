@@ -1,59 +1,30 @@
 import React, { Component } from "react";
 import AsyncSelect from "react-select/lib/Async";
-import { Api } from "../Api";
+import styled from "react-emotion/macro";
 
 export default class SearchInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: "",
-      users: null,
-      minCharacters: 4,
-      minCharactersReached: false
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.minCharacterCheck = this.minCharacterCheck.bind(this);
-  }
-
-  async getUsers(value) {
-    if (!value || this.state.minCharactersReached === false) {
-      return [];
-    }
-
-    const response = await Api.get("", `q=${value}`);
-    const usersAsValueLabel = response.users.map(obj => {
-      let rObj = {};
-      rObj["label"] = obj.display_name;
-      rObj["value"] = obj.id;
-      return rObj;
-    });
-    return usersAsValueLabel;
-  }
-
-  handleChange(event) {
-    this.setState({ value: event.label });
-  }
-
-  minCharacterCheck(value) {
-    if (!!value && value.length >= this.state.minCharacters) {
-      this.setState({ minCharactersReached: true });
-    }
-  }
-
   render() {
-    const { value } = this.state;
+    const { onInputChange, loadOptions, onChange, value } = this.props;
     return (
-      <div>
-        <p>value: {value}</p>
-        <AsyncSelect
-          onInputChange={this.minCharacterCheck}
-          loadOptions={e => this.getUsers(e)}
-          onChange={this.handleChange}
+      <Container>
+        <StyledAsyncSelect
+          onInputChange={onInputChange}
+          loadOptions={loadOptions}
+          onChange={onChange}
           value={value}
           autoFocus
         />
-      </div>
+      </Container>
     );
   }
 }
+
+const Container = styled("div")`
+  display: flex;
+  margin-bottom: 100px;
+`;
+
+const StyledAsyncSelect = styled(AsyncSelect)`
+  width: 500px;
+  margin: auto;
+`;

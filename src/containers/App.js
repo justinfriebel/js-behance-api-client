@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import styled from "react-emotion/macro";
-import { ThemeProvider } from "emotion-theming";
+import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
+import { Box, Flex } from "rebass";
+import theme from "../theme";
 import SearchInput from "../components/SearchInput";
 import Profile from "../containers/Profile";
 import { Api } from "../Api";
@@ -54,27 +55,76 @@ export default class App extends Component {
   render() {
     const { value, user } = this.state;
     return (
-      <ThemeProvider theme={theme}>
-        <Container>
-          <SearchInput
-            onInputChange={this.minCharacterCheck}
-            loadOptions={this.getUsers}
-            onChange={this.handleChange}
-            value={value}
-          />
-          {!!user && <Profile user={user} />}
-        </Container>
-      </ThemeProvider>
+      <StyledProvider theme={theme}>
+        <MainContainer>
+          <div>
+            <SearchInput
+              onInputChange={this.minCharacterCheck}
+              loadOptions={this.getUsers}
+              onChange={this.handleChange}
+              value={value}
+            />
+          </div>
+          <Body>
+            <Flex flexWrap="wrap">
+              <Box width={1} px={2}>
+                {!!user && <Profile user={user} />}
+              </Box>
+            </Flex>
+          </Body>
+          <GlobalStyle />
+        </MainContainer>
+      </StyledProvider>
     );
   }
 }
 
-const theme = {
-  borderRadius: "50%",
-  borderColor: "#BF67AD",
-  padding: 20
-};
+const GlobalStyle = createGlobalStyle`
+  * { box-sizing: border-box; overflow-wrap: break-word; }
+  html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    color: #034667;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  #root {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    height: 100%;
+    position: relative;
+  }
+`;
 
-const Container = styled.div({
-  margin: 60
-});
+const StyledProvider = ({ className, children }) => (
+  <ThemeProvider theme={theme}>{children}</ThemeProvider>
+);
+
+const MainContainer = styled.div`
+  min-height: 110%;
+  position: relative;
+  background: #c9dfea;
+`;
+
+const Body = styled.div`
+  padding: 10px;
+  padding-bottom: 48px;
+  position: relative;
+`;
+
+// const Footer = styled.div`
+//   position: fixed;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   width: 100%;
+//   padding: 1rem;
+//   background: #035379;
+//   color: white;
+//   z-index: 999;
+// `;

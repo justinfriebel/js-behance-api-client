@@ -57,21 +57,21 @@ export default class App extends Component {
     return (
       <StyledProvider theme={theme}>
         <MainContainer>
-          <div>
-            <SearchInput
-              onInputChange={this.minCharacterCheck}
-              loadOptions={this.getUsers}
-              onChange={this.handleChange}
-              value={value}
-            />
-          </div>
-          <Body>
-            <Flex flexWrap="wrap">
-              <Box width={1} px={2}>
-                {!!user && <Profile user={user} />}
-              </Box>
-            </Flex>
-          </Body>
+          <Flex mx={-2}>
+            <Box width={1} px={[2, 3, 4]}>
+              <SearchInput
+                onInputChange={this.minCharacterCheck}
+                loadOptions={this.getUsers}
+                onChange={this.handleChange}
+                value={value}
+              />
+            </Box>
+          </Flex>
+          <Flex mx={-2}>
+            <Box width={1} px={[2, 3, 4]}>
+              {!!user && <Profile user={user} />}
+            </Box>
+          </Flex>
           <GlobalStyle />
         </MainContainer>
       </StyledProvider>
@@ -85,12 +85,9 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     height: 100%;
-    color: #034667;
-  }
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
+    color: #000;
+    font-family: Roboto;
+    background: #eaeaea;
   }
   #root {
     margin: 0;
@@ -108,23 +105,9 @@ const StyledProvider = ({ className, children }) => (
 const MainContainer = styled.div`
   min-height: 110%;
   position: relative;
-  background: #c9dfea;
 `;
 
-const Body = styled.div`
-  padding: 10px;
-  padding-bottom: 48px;
-  position: relative;
-`;
-
-// const Footer = styled.div`
-//   position: fixed;
-//   right: 0;
-//   bottom: 0;
-//   left: 0;
-//   width: 100%;
-//   padding: 1rem;
-//   background: #035379;
-//   color: white;
-//   z-index: 999;
+// const Body = styled.div`
+//   padding-bottom: 48px;
+//   position: relative;
 // `;

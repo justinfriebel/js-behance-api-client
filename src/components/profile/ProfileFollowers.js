@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Box, Flex } from "rebass";
 import { Api } from "../../Api";
 
 class ProfileFollowers extends Component {
@@ -17,11 +18,13 @@ class ProfileFollowers extends Component {
   render() {
     const { followers } = this.state;
     return (
-      <div>
-        <h3>Followers</h3>
-        {!!followers &&
-          followers.map(key => <p key={key.username}>{key.display_name}</p>)}
-      </div>
+      <Flex mx={-2}>
+        <Box width={1} px={2}>
+          <h3>Followers</h3>
+          {!!followers &&
+            followers.map(key => <p key={key.username}>{key.display_name}</p>)}
+        </Box>
+      </Flex>
     );
   }
 }

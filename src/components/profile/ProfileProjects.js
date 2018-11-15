@@ -21,7 +21,7 @@ class ProfileProjects extends Component {
     return (
       <div>
         <Flex mx={-4}>
-          <Box width={1} px={4}>
+          <Box width={1} pr={4}>
             <StyledH3>Projects</StyledH3>
           </Box>
         </Flex>
@@ -40,7 +40,6 @@ class ProfileProjects extends Component {
                     src={project.covers["202"]}
                     alt={project.name}
                   />
-                  {/* <img src={project.covers["202"]} alt={project.name} /> */}
                   <StyledH4>{project.name}</StyledH4>
                   <StyledP>{project.fields}</StyledP>
                 </Card>

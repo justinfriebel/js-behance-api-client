@@ -22,7 +22,9 @@ class ProfileFollowing extends Component {
         <Box width={1} px={2}>
           <h3>Following</h3>
           {!!following &&
-            following.map(key => <p key={key.username}>{key.display_name}</p>)}
+            following
+              .slice(0, 10)
+              .map(key => <p key={key.username}>{key.display_name}</p>)}
         </Box>
       </Flex>
     );

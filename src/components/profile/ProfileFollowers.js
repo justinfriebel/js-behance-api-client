@@ -22,7 +22,9 @@ class ProfileFollowers extends Component {
         <Box width={1} px={2}>
           <h3>Followers</h3>
           {!!followers &&
-            followers.map(key => <p key={key.username}>{key.display_name}</p>)}
+            followers
+              .slice(0, 10)
+              .map(key => <p key={key.username}>{key.display_name}</p>)}
         </Box>
       </Flex>
     );

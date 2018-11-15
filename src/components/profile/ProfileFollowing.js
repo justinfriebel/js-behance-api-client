@@ -18,7 +18,7 @@ class ProfileFollowing extends Component {
   async componentDidUpdate(prevProps) {
     const response = await Api.get(`/${this.props.user.id}/following`);
     if (this.props.user.id !== prevProps.user.id) {
-      this.setState({ followers: response.following });
+      this.setState({ following: response.following });
     }
   }
 

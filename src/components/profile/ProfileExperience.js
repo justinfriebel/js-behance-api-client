@@ -14,6 +14,13 @@ class ProfileExperience extends Component {
     this.setState({ experience: response.work_experience });
   }
 
+  async componentDidUpdate(prevProps) {
+    const response = await Api.get(`/${this.props.user.id}/work_experience`);
+    if (this.props.user.id !== prevProps.user.id) {
+      this.setState({ experience: response.work_experience });
+    }
+  }
+
   render() {
     const { experience } = this.state;
 

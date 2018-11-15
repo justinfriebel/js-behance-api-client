@@ -19,7 +19,7 @@ class ProfileProjects extends Component {
   async componentDidUpdate(prevProps) {
     const response = await Api.get(`/${this.props.user.id}/projects`);
     if (this.props.user.id !== prevProps.user.id) {
-      this.setState({ followers: response.projects });
+      this.setState({ projects: response.projects });
     }
   }
 

@@ -67,8 +67,8 @@ export default class App extends Component {
               />
             </Box>
           </Flex>
-          <Flex mx={-2}>
-            <Box width={1} px={[2, 3, 4]}>
+          <Flex mx={-2} justifyContent={"center"}>
+            <Box width={[1, 7 / 8, 6 / 8]} px={[2, 3, 4]}>
               {!!user && <Profile user={user} />}
             </Box>
           </Flex>

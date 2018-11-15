@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-// import styled from "styled-components";
-import { Box, Flex, Image } from "rebass";
+import { Box, Flex } from "rebass";
+import ProfileImage from "../components/profile/ProfileImage";
+import ProfileName from "../components/profile/ProfileName";
+import ProfileLocation from "../components/profile/ProfileLocation";
+import ProfileAbout from "../components/profile/ProfileAbout";
 import ProfileStats from "../components/profile/ProfileStats";
-import WorkExperience from "../components/profile/WorkExperience";
+import ProfileExperience from "../components/profile/ProfileExperience";
 import ProfileFollowers from "../components/profile/ProfileFollowers";
 import ProfileFollowing from "../components/profile/ProfileFollowing";
 import ProfileProjects from "../components/profile/ProfileProjects";
@@ -13,21 +16,13 @@ class Profile extends Component {
 
     return (
       <Flex mx={-2}>
-        <Box width={[3 / 8, 1 / 5]} pl={2} pr={4}>
-          <Image
-            width={[1, 1, 1 / 2]}
-            src={user.images["138"]}
-            alt={user.display_name}
-          />
-          <h2>
-            <a href={user.url} target="_blank" rel="noopener noreferrer">
-              {user.display_name}
-            </a>
-          </h2>
-          <p>{user.location}</p>
-          <p>{user.sections["About Me"]}</p>
+        <Box width={[3 / 8, 1 / 5]} pl={2} mr={4}>
+          <ProfileImage user={user} />
+          <ProfileName user={user} />
+          <ProfileLocation user={user} />
+          <ProfileAbout user={user} />
           <ProfileStats user={user} />
-          <WorkExperience user={user} />
+          <ProfileExperience user={user} />
           <ProfileFollowers user={user} />
           <ProfileFollowing user={user} />
         </Box>

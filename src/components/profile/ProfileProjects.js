@@ -16,8 +16,16 @@ class ProfileProjects extends Component {
     this.setState({ projects: response.projects });
   }
 
+  async componentDidUpdate(prevProps) {
+    const response = await Api.get(`/${this.props.user.id}/projects`);
+    if (this.props.user.id !== prevProps.user.id) {
+      this.setState({ followers: response.projects });
+    }
+  }
+
   render() {
     const { projects } = this.state;
+
     return (
       <div>
         <Flex mx={-4}>

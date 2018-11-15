@@ -15,8 +15,16 @@ class ProfileFollowers extends Component {
     this.setState({ followers: response.followers });
   }
 
+  async componentDidUpdate(prevProps) {
+    const response = await Api.get(`/${this.props.user.id}/followers`);
+    if (this.props.user.id !== prevProps.user.id) {
+      this.setState({ followers: response.followers });
+    }
+  }
+
   render() {
     const { followers } = this.state;
+
     return (
       <Flex mx={-2}>
         <Box width={1} px={2}>

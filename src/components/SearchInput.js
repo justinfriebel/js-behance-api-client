@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AsyncSelect from "react-select/lib/Async";
 import styled from "styled-components";
-import behanceLogo from "../PbyBehance-vertical-85px.png";
+import behanceLogo from "../images/PbyBehance-vertical-85px.png";
 import { Box, Flex } from "rebass";
 
 export default class SearchInput extends Component {

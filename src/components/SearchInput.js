@@ -1,30 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
 import AsyncSelect from "react-select/lib/Async";
 import styled from "styled-components";
 import behanceLogo from "../images/PbyBehance-vertical-85px.png";
 import { Box, Flex } from "rebass";
 
-export default class SearchInput extends Component {
-  render() {
-    const { onInputChange, loadOptions, onChange, value } = this.props;
-    return (
-      <Flex mx={-2}>
-        <Box width={1} px={2} py={4}>
-          <BehanceLogo src={behanceLogo} alt="Behance logo" />
-          <StyledAsyncSelect
-            onInputChange={onInputChange}
-            loadOptions={loadOptions}
-            onChange={onChange}
-            placeholder="Search"
-            value={value}
-            autoFocus
-            styles={customStyles}
-          />
-        </Box>
-      </Flex>
-    );
-  }
-}
+const SearchInput = ({ onInputChange, loadOptions, onChange, value }) => {
+  return (
+    <Flex mx={-2}>
+      <Box width={1} px={2} py={4}>
+        <BehanceLogo src={behanceLogo} alt="Behance logo" />
+        <StyledAsyncSelect
+          onInputChange={onInputChange}
+          loadOptions={loadOptions}
+          onChange={onChange}
+          placeholder="Search"
+          value={value}
+          autoFocus
+          styles={customStyles}
+        />
+      </Box>
+    </Flex>
+  );
+};
 
 const BehanceLogo = styled("img")`
   display: block;
@@ -39,17 +36,16 @@ const StyledAsyncSelect = styled(AsyncSelect)`
 `;
 
 const customStyles = {
-  control: (provided, state) => ({
+  control: provided => ({
     ...provided,
     boxShadow: "none",
     borderColor: "#353535"
-    // You can also use state.isFocused to conditionally style based on the focus state
   }),
-  dropdownIndicator: (provided, state) => ({
+  dropdownIndicator: provided => ({
     ...provided,
     display: "none"
   }),
-  indicatorSeparator: (provided, state) => ({
+  indicatorSeparator: provided => ({
     ...provided,
     display: "none"
   }),
@@ -66,3 +62,5 @@ const customStyles = {
     return { ...provided, opacity, transition };
   }
 };
+
+export default SearchInput;

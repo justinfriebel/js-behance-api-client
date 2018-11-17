@@ -1,11 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-class ProfileAbout extends Component {
-  render() {
-    const { user } = this.props;
-
-    return <p>{user.sections["About Me"]}</p>;
-  }
-}
+const ProfileAbout = ({ user }) => {
+  return <p>{user.sections["About Me"]}</p>;
+};
 
 export default ProfileAbout;

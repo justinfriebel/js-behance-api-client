@@ -28,11 +28,11 @@ export default class App extends Component {
     }
 
     const response = await Api.get("", `q=${value}`);
-    const usersAsValueLabel = response.users.map(obj => {
-      let rObj = {};
-      rObj["label"] = obj.display_name;
-      rObj["value"] = obj.id;
-      return rObj;
+    const usersAsValueLabel = response.users.map(user => {
+      let userAsValueLabel = {};
+      userAsValueLabel["label"] = user.display_name;
+      userAsValueLabel["value"] = user.id;
+      return userAsValueLabel;
     });
     return usersAsValueLabel;
   }
@@ -54,6 +54,7 @@ export default class App extends Component {
 
   render() {
     const { value, user } = this.state;
+
     return (
       <StyledProvider theme={theme}>
         <MainContainer>
@@ -98,7 +99,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const StyledProvider = ({ className, children }) => (
+const StyledProvider = ({ children }) => (
   <ThemeProvider theme={theme}>{children}</ThemeProvider>
 );
 
@@ -106,8 +107,3 @@ const MainContainer = styled.div`
   min-height: 110%;
   position: relative;
 `;
-
-// const Body = styled.div`
-//   padding-bottom: 48px;
-//   position: relative;
-// `;

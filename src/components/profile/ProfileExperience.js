@@ -26,7 +26,7 @@ class ProfileExperience extends Component {
 
     return (
       <div>
-        <h3>Experience</h3>
+        {!!experience && <h3>Experience</h3>}
         {!!experience &&
           experience.map(key => (
             <p key={key.position + key.organization}>

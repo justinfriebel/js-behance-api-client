@@ -1,0 +1,22 @@
+[
+  {
+    "position": "Art Director, Designer",
+    "start_date": "01-2009",
+    "organization": "Peter Tarka",
+    "location": "London, United Kingdom"
+  },
+  {
+    "position": "Designer",
+    "start_date": "10-2012",
+    "end_date": "01-2015",
+    "organization": "JUICE",
+    "location": "Wrocław, Poland"
+  },
+  {
+    "position": "Designer",
+    "start_date": "01-2012",
+    "end_date": "09-2012",
+    "organization": "JWT (J. Walter Thompson)",
+    "location": "Wrocław, Poland"
+  }
+]

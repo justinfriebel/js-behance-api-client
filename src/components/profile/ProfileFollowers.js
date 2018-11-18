@@ -28,7 +28,7 @@ class ProfileFollowers extends Component {
     return (
       <Flex mx={-2}>
         <Box width={1} px={2}>
-          <h3>Followers</h3>
+          {!!followers && <h3>Followers</h3>}
           {!!followers &&
             followers
               .slice(0, 10)

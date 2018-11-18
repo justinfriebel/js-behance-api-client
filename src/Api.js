@@ -9,6 +9,8 @@ export const Api = {
     const response = await fetchJsonp(
       `${apiUrl}${url}?api_key=${apiKey}${params}`
     );
+    console.log(response.json());
+
     return response.json();
   }
 };

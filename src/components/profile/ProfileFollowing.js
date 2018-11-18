@@ -28,7 +28,7 @@ class ProfileFollowing extends Component {
     return (
       <Flex mx={-2}>
         <Box width={1} px={2}>
-          <h3>Following</h3>
+          {!!following && <h3>Following</h3>}
           {!!following &&
             following
               .slice(0, 10)

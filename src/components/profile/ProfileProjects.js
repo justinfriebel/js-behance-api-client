@@ -36,7 +36,7 @@ class ProfileProjects extends Component {
               pr={4}
               pb={4}
             >
-              <Card>
+              <StyledCard onClick={() => window.open(project.url, "_blank")}>
                 <Image
                   width={1}
                   borderRadius={8}
@@ -45,13 +45,17 @@ class ProfileProjects extends Component {
                 />
                 <StyledH4>{project.name}</StyledH4>
                 <StyledP>{project.fields}</StyledP>
-              </Card>
+              </StyledCard>
             </Box>
           ))}
       </Flex>
     );
   }
 }
+
+const StyledCard = styled(Card)`
+  cursor: pointer;
+`;
 
 const StyledH4 = styled("h4")`
   margin-top: 8px;

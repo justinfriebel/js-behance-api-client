@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { Box, Flex, Card, Image } from "rebass";
+import { Box, Flex, Card, Image, Link } from "rebass";
 import { Api } from "../../Api";
 
 class ProfileProjects extends Component {
@@ -36,16 +36,21 @@ class ProfileProjects extends Component {
               pr={4}
               pb={4}
             >
-              <StyledCard onClick={() => window.open(project.url, "_blank")}>
-                <Image
-                  width={1}
-                  borderRadius={8}
-                  src={project.covers["202"]}
-                  alt={project.name}
-                />
-                <StyledH4>{project.name}</StyledH4>
-                <StyledP>{project.fields}</StyledP>
-              </StyledCard>
+              <Link
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Card>
+                  <Image
+                    width={1}
+                    borderRadius={8}
+                    src={project.covers["202"]}
+                    alt={project.name}
+                  />
+                  <StyledH4>{project.name}</StyledH4>
+                </Card>
+              </Link>
             </Box>
           ))}
       </Flex>
@@ -53,17 +58,9 @@ class ProfileProjects extends Component {
   }
 }
 
-const StyledCard = styled(Card)`
-  cursor: pointer;
-`;
-
 const StyledH4 = styled("h4")`
   margin-top: 8px;
   margin-bottom: 8px;
-`;
-
-const StyledP = styled("p")`
-  margin-top: 8px;
 `;
 
 export default ProfileProjects;

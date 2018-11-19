@@ -1,14 +1,14 @@
 import React from "react";
 import AsyncSelect from "react-select/lib/Async";
 import styled from "styled-components";
-import behanceLogo from "../images/PbyBehance-vertical-85px.png";
-import { Box, Flex } from "rebass";
+import logo from "../images/logo.svg";
+import { Box, Flex, Image } from "rebass";
 
 const SearchInput = ({ onInputChange, loadOptions, onChange, value }) => {
   return (
     <Flex mx={-2}>
-      <Box width={1} px={2} py={4}>
-        <BehanceLogo src={behanceLogo} alt="Behance logo" />
+      <Box width={1} px={2} py={5}>
+        <BehanceLogo src={logo} alt="BeSearch logo" />
         <StyledAsyncSelect
           onInputChange={onInputChange}
           loadOptions={loadOptions}
@@ -23,7 +23,7 @@ const SearchInput = ({ onInputChange, loadOptions, onChange, value }) => {
   );
 };
 
-const BehanceLogo = styled("img")`
+const BehanceLogo = styled(Image)`
   display: block;
   margin: 0px auto;
   margin-bottom: 8px;

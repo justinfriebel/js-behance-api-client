@@ -9,22 +9,6 @@ export const Api = {
     const response = await fetchJsonp(
       `${apiUrl}${url}?api_key=${apiKey}${params}`
     );
-    console.log(response.json());
-
     return response.json();
   }
 };
-
-// future way to catch errors, need to update calls tho
-// export const Api = {
-//   get(url, paramString) {
-//     const params = paramString ? `&${paramString}` : "";
-//     fetchJsonp(`${apiUrl}${url}?api_key=${apiKey}${params}`)
-//       .then(function(response) {
-//         return response.json();
-//       })
-//       .catch(function(ex) {
-//         console.log("parsing failed", ex);
-//       });
-//   }
-// };

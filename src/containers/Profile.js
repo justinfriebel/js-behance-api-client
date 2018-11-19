@@ -15,7 +15,7 @@ class Profile extends Component {
 
     return (
       <Flex mx={-2}>
-        <Box width={[3 / 8, 1 / 5]} pl={2} mr={4}>
+        <Box width={[3 / 8, 1 / 5]} pl={2} mr={5}>
           <ProfileImage user={user} />
           <ProfileName user={user} />
           <ProfileLocation user={user} />

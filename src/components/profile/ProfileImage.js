@@ -1,14 +1,16 @@
 import React from "react";
-import { Image } from "rebass";
+import { Image, Link } from "rebass";
 
 const ProfileImage = ({ user }) => {
   return (
-    <Image
-      width={[1, 1, 4 / 5]}
-      src={user.images["276"]}
-      alt={user.display_name}
-      borderRadius="50%"
-    />
+    <Link href={user.url} target="_blank" rel="noopener noreferrer">
+      <Image
+        width={[1, 1, 4 / 5]}
+        src={user.images["276"]}
+        alt={user.display_name}
+        borderRadius="50%"
+      />
+    </Link>
   );
 };
 

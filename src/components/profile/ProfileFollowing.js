@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Box, Flex } from "rebass";
+import { Box, Flex, Link } from "rebass";
 import { Api } from "../../Api";
 
 class ProfileFollowing extends Component {
@@ -30,9 +30,17 @@ class ProfileFollowing extends Component {
         <Box width={1} px={2}>
           {!!following && <h3>Following</h3>}
           {!!following &&
-            following
-              .slice(0, 10)
-              .map(key => <p key={key.username}>{key.display_name}</p>)}
+            following.slice(0, 10).map(followe => (
+              <p key={followe.username}>
+                <Link
+                  href={followe.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {followe.display_name}
+                </Link>
+              </p>
+            ))}
         </Box>
       </Flex>
     );

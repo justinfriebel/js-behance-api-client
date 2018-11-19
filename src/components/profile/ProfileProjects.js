@@ -39,6 +39,7 @@ class ProfileProjects extends Component {
               <Card>
                 <Image
                   width={1}
+                  borderRadius={8}
                   src={project.covers["202"]}
                   alt={project.name}
                 />

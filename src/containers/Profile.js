@@ -3,7 +3,6 @@ import { Box, Flex } from "rebass";
 import ProfileImage from "../components/profile/ProfileImage";
 import ProfileName from "../components/profile/ProfileName";
 import ProfileLocation from "../components/profile/ProfileLocation";
-import ProfileAbout from "../components/profile/ProfileAbout";
 import ProfileStats from "../components/profile/ProfileStats";
 import ProfileExperience from "../components/profile/ProfileExperience";
 import ProfileFollowers from "../components/profile/ProfileFollowers";
@@ -20,7 +19,6 @@ class Profile extends Component {
           <ProfileImage user={user} />
           <ProfileName user={user} />
           <ProfileLocation user={user} />
-          <ProfileAbout user={user} />
           <ProfileStats user={user} />
           <ProfileExperience user={user} />
           <ProfileFollowers user={user} />

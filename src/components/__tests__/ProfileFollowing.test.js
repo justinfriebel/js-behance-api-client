@@ -1,26 +1,35 @@
 import React from "react";
 import { shallow } from "enzyme";
 import ProfileFollowing from "../profile/ProfileFollowing";
-import user from "../__mocks__/user";
+import user from "../__mocks__/user.json";
+import following from "../__mocks__/following.json";
 
-it("renders ProfileFollowing without crashing", () => {
-  shallow(<ProfileFollowing user={user} />);
+describe("ProfileFollowing", () => {
+  const profileFollowing = shallow(<ProfileFollowing user={user} />);
+
+  beforeAll(() => {
+    profileFollowing.setState({ following: following });
+  });
+
+  afterAll(() => {
+    profileFollowing.setState({ following: null });
+  });
+
+  it("renders the second follower", () => {
+    expect(
+      profileFollowing
+        .find("p")
+        .at(1)
+        .text()
+    ).toEqual("Agnieszka Janich");
+  });
+
+  it("renders the third follower", () => {
+    expect(
+      profileFollowing
+        .find("p")
+        .at(2)
+        .text()
+    ).toEqual("jonathan ball / pokedstudio");
+  });
 });
-
-// need to setup a following mock api for more tests
-
-// it("renders a list of following", () => {
-//   const wrapper = shallow(<ProfileFollowing user={user} />);
-//   const followingList = (
-//     <Flex mx={-2}>
-//     <Box width={1} px={2}>
-//       <h3>Following</h3>
-//       {!!following &&
-//         following
-//           .slice(0, 10)
-//           .map(key => <p key={key.username}>{key.display_name}</p>)}
-//     </Box>
-//   </Flex>
-//   );
-//   expect(wrapper.contains(followingList)).toEqual(true);
-// });

@@ -1,7 +1,7 @@
 import React from "react";
 import AsyncSelect from "react-select/lib/Async";
 import styled from "styled-components";
-import logo from "../images/logo.svg";
+import logo from "../images/logo.png";
 import { Box, Flex, Image } from "rebass";
 
 const SearchInput = ({ onInputChange, loadOptions, onChange, value }) => {

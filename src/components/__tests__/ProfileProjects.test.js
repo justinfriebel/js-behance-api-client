@@ -26,7 +26,7 @@ describe("ProfileProjects", () => {
   it("renders the second project", () => {
     expect(
       profileProject.findWhere(
-        n => n.type() === "h4" && n.contains("YOOX: Make a Wish")
+        n => n.type() === "h4" && n.contains("LG Signature")
       )
     );
   });

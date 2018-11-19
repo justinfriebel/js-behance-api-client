@@ -1,5 +1,3 @@
-You can run this project on your local machine or you can open it on [codesandbox](https://codesandbox.io/s/github/justinfriebel/js-behance-api/tree/master/).
-
 ## Available Scripts
 
 In the project directory, you can run:

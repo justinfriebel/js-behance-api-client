@@ -1,5 +1,5 @@
 const black = "#353535";
-const blue = "#07c";
+const blue = "#0057ff";
 const lightGray = "#f6f6ff";
 
 export default {

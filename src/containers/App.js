@@ -15,14 +15,9 @@ export default class App extends Component {
       minCharacters: 4,
       minCharactersReached: false
     };
-
-    this.getUsers = this.getUsers.bind(this);
-    this.getUser = this.getUser.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.minCharacterCheck = this.minCharacterCheck.bind(this);
   }
 
-  async getUsers(value) {
+  getUsers = async value => {
     if (!value || this.state.minCharactersReached === false) {
       return [];
     }
@@ -35,22 +30,22 @@ export default class App extends Component {
       return userAsValueLabel;
     });
     return usersAsValueLabel;
-  }
+  };
 
-  async getUser(userId) {
+  getUser = async userId => {
     const response = await Api.get(`/${userId}`);
     this.setState({ user: response.user });
-  }
+  };
 
-  handleChange(e) {
+  handleChange = e => {
     this.getUser(e.value);
-  }
+  };
 
-  minCharacterCheck(value) {
+  minCharacterCheck = value => {
     if (!!value && value.length >= this.state.minCharacters) {
       this.setState({ minCharactersReached: true });
     }
-  }
+  };
 
   render() {
     const { value, user } = this.state;

@@ -10,7 +10,7 @@
     "jest-dom": "^2.1.1",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
-    "react-scripts": "2.1.1",
+    "react-scripts": "^5.0.1",
     "react-select": "^2.1.1",
     "react-testing-library": "^5.2.3",
     "rebass": "^3.0.0-10",
